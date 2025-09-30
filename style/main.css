@@ -33,4 +33,23 @@ ul li a:hover {
     background-color: whitesmoke;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
+    font-size: medium;
+    text-align: center;
+    text-decoration: dashed;
+    text-decoration-thickness: 1px;
+    
+}
+
+.education{
+    background-color: whitesmoke;
+    text-align: center;
+    text-decoration: wavy;
+}
+
+.experience{
+     background-color: whitesmoke;
+     text-align: center;
+     text-rendering: auto;
+     text-decoration: dashed;
+
 }
