@@ -88,5 +88,5 @@ vertical-align: top;
 
 .show{
   border-radius: 20px;
-  
+  cursor: pointer;
 }
