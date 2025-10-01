@@ -45,6 +45,20 @@ ul li a:hover {
     text-align: center;
     text-decoration: wavy;
 }
+.img-punjab{
+display: inline-block;
+width: 50px;
+vertical-align: top;
+}
+.info{
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+.profile-pic{
+  width: 50px;
+
+}
 
 .experience{
      background-color: whitesmoke;
@@ -52,4 +66,28 @@ ul li a:hover {
      text-rendering: auto;
      text-decoration: dashed;
 
+}
+
+.ionos{
+ display: inline-block;
+ width: 50px;
+ vertical-align: top;
+}
+
+.positivity{
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
+}
+
+.form3{
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
+}
+
+.unfold{
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
 }
