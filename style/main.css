@@ -85,3 +85,8 @@ vertical-align: top;
 .detail-text{
   font-size: 14px;
 }
+
+.show{
+  border-radius: 20px;
+  
+}
