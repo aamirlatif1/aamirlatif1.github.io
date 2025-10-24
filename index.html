@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <div
-        class="header justify-center p-4 flex space-x-4 m-md:space-x-0 md:space-x-6 lg:space-x-8 xl:space-x-10 2xl:space-x-12 m-top:0">
+    <div class="header justify-center p-4 flex space-x-4 m-md:space-x-0 md:space-x-6 lg:space-x-8 xl:space-x-10 2xl:space-x-12 m-top:0">
         <img src="image/hero.png">
     </div>
     <div>
@@ -28,12 +27,16 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
-    <div class="size-10 absolute right-12 bottom-6"><a href="#"><img src="image/top-Arrow.png"></a></div>
+    <div class="fixed right-6 bottom-6 z-50">
+        <a href="#" aria-label="Scroll to top">
+            <img src="image/top-Arrow.png" alt="upward pointing arrow indicating scroll to top, moves up and down, positioned bottom-right over page content" class="w-10 h-10 animate-bounce">
+        </a>
+    </div>
     
     <div class="grid grid-row-4 gap-3" id="about">
         <div class="bg-blue-500 text-white rounded-lg max-w-4xl text-left ml-1 m-1 p-2">
             <h1 class="text-2xl font-bold mb-1 ">About</h1>
-            <p>
+            <p class="text-lg">
                 As a Senior Software Engineer at Form3, develop high-performance cross currency microservices services
                 using golang technologies and EDA architecture.
                 I have over 6 years of experience in microservices, EDA and I have earned multiple certifications in
@@ -308,7 +311,8 @@
             href="https://www.linkedin.com/learning/certificates/6dab0ed73045b4c9ccf9f60187aa3d152d20da17a25fbfa82f131c63d22463f5?trk=backfilled_certificate"><button
                 class="bg-black text-white rounded-lg">Show Certificate</button></a>
 
-    </div-->
+    </div>
+
 </body>
 
 </html>
