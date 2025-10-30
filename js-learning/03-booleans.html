@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Booleans</title>
+</head>
+<body>
+   <script>
+        true
+        false
+        console.log(true);
+        console.log(false); 
+        console.log(typeof true);
+        console.log(typeof false);
+        console.log(5 > 3);  // true
+        console.log(2 < 1);  // false
+        console.log(5 >= 5); // true
+        console.log(3 <= 2); // false
+        console.log(4 == 4); // true
+        console.log(4 != 5); // true
+        console.log(4 == '4'); // true (loose equality)
+        console.log(4 === '4'); // false (strict equality)
+        console.log(4 !== '4'); // true (strict inequality) 
+        console.log( (5 > 3) && (2 < 4) ); // true
+        console.log( (5 > 3) || (2 > 4) ); // true
+        console.log( !(5 > 3) ); // false
+
+        if (false) {
+            console.log('hello');
+        } else {
+            console.log('else hello');
+        }
+
+        const age = 30;
+        if(age >= 18) {
+            console.log('You are an adult.');
+        } else if(age >= 12) {
+            console.log('You are a child.');
+        } else {
+            console.log('You are a minor.');
+
+        }
+
+   </script>
+</body>
+</html>
