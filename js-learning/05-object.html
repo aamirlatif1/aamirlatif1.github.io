@@ -8,6 +8,8 @@
 <body>
 
     <script>
+        /*
+        // Product Object
         const Product = {
             name: 'Laptop',
             price: 999.99,
@@ -16,6 +18,44 @@
         console.log(Product);
         console.log('Product Name: ' + Product.name);
         console.log('Product Price: ' + Product.price);
+
+        Product.name = 'Gaming Laptop';
+        console.log(Product);
+
+        Product.newProperty = true;
+        console.log(Product);
+
+        delete Product.newProperty;
+        console.log(Product);
+        */
+
+        const Product2 = {
+            name: 'Smartphone',
+            price: 699.99,
+            'delivery-time': '3-5 business days',
+            rating: {
+                rate: 4.5,
+                count: 1500
+            },
+            fun: function function1() {
+                console.log('This is a method inside the Product2 object.');
+        }
+        };
+
+        console.log(Product2);
+        console.log('Product2 Name: ' + Product2.name);
+        console.log('Product2 Price: ' + Product2.price);
+        console.log('Product2 Delivery Time: ' + Product2['delivery-time']);
+        console.log('Product2 Rating Rate: ' + Product2.rating.rate);
+        console.log('Product2 Rating Count: ' + Product2.rating.count);
+        Product2.fun();
+
+        console.log(typeof console)
+        console.log(JSON.stringify(Product2));
+        const Product3 = JSON.parse(JSON.stringify(Product2));
+        console.log(Product3);
+        
+
     </script>
 </body>
 </html>
