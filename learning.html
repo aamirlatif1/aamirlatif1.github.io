@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>JS</title>
 </head>
 <body>
+    <div id="skills"></div>
+
+    <div class="grid grid-cols-1 gap-10 bg-blue-500 text-white p-10 border-b-4 border-blue-700 rounded-lg max-w-4xl text-left ml-1 m-1 p-2 hover:bg-blue-900 transition duration-300 box-shadow 0 12px 30px -5px rgba(0, 0, 0, 0.9), 0 2px 4px -1px rgba(0, 0, 0, 0.08);">
+        <h1 class="text-center text-2xl font-bold mb-1 ">Experience</h1>   
+        <div class="grid grid-cols-2 gap-8" id="experiences">
+    
+        </div>
+    </div>
+        
     
 
     <script>
@@ -18,28 +28,73 @@
         // classes and objects
         // Algorithms techniques
 
-        let x = 9;
-        let y = 20;
+        let experiences = [ 
+            {
+                "toUrl" : "https://www.linkedin.com/company/ionos/",
+                "imgUrl" : "ionos_logo.jpeg",
+                "title" : "Staff Software Engineer",
+                "company" : "IONOS · Full-time"
+            },
+            {
+                "toUrl" : "https://www.linkedin.com/company/positivity-said/",
+                "imgUrl" : "Positivity_logo.jpeg",
+                "title" : "Solutions Architect",
+                "company" : "Confidential · Part-time"
+            },
+            {
+                "toUrl" : "https://www.linkedin.com/company/ionos/",
+                "imgUrl" : "ionos_logo.jpeg",
+                "title" : "Staff Software Engineer",
+                "company" : "IONOS · Full-time"
+            },
+            {
+                "toUrl" : "https://www.linkedin.com/company/positivity-said/",
+                "imgUrl" : "Positivity_logo.jpeg",
+                "title" : "Solutions Architect",
+                "company" : "Confidential · Part-time"
+            },
+            {
+                "toUrl" : "https://www.linkedin.com/company/ionos/",
+                "imgUrl" : "ionos_logo.jpeg",
+                "title" : "Staff Software Engineer",
+                "company" : "IONOS · Full-time"
+            },
+            {
+                "toUrl" : "https://www.linkedin.com/company/positivity-said/",
+                "imgUrl" : "Positivity_logo.jpeg",
+                "title" : "Solutions Architect",
+                "company" : "Confidential · Part-time"
+            }
+    ]
 
-        // arithmatic operators
-        console.log(x + y);
-        console.log(x - y);
-        console.log(x * y); // 180 integer
-        console.log(y / x); // 2.2222 floating point
-        console.log(y % x);
+        let skills = ["Java", "c++", "JavaScript", "CSS", "Kotlin", "Golang", "K8s", "MongoDB", "Java", "c++", "JavaScript", "CSS", "Kotlin", "Golang", "K8s", "MongoDB", "Java", "c++", "JavaScript", "CSS", "Kotlin", "Golang", "K8s", "MongoDB"]
 
+        let skillsEle = document.getElementById("skills");
+        let ul = document.createElement("ul");
+        ul.className += "list-disc list-inside";
+        for(let s of skills) {
+            let li = document.createElement("li");
+            li.innerHTML = s.toUpperCase();
+            ul.appendChild(li);
+        }
+        skillsEle.appendChild(ul);
 
-        let a = 1;
-        let b = "1";
-        // <, <=, >, >=, ==, != , !
-        console.log(x < y);
-        console.log(x >= y -11);
-        console.log(x != y);
-        console.log(!(x < y))
+        let exE = document.getElementById("experiences")
 
-        console.log(a === b);
-        console.log(a === parseInt(b));
-
+        for (let ex of experiences) {
+            let me = `<div>
+                            <a href="${ex.toUrl}"><img class="rounded-4xl m-auto" src="image/${ex.imgUrl}">
+                            </a>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">${ex.title}</h3>
+                            <p>${ex.company}</p>
+                            <p>Jun 2024 - Present · 4 mos</p>
+                            <p>Berlin, Germany</p>
+                            <p>Go (Programming Language), Kubernetes and +1 skill</p>
+                        </div>`
+            exE.innerHTML += me;
+        }
 
     </script>
 </body>
