@@ -8,28 +8,47 @@
                 <body>
                     
                     <p>Rock Paper Scissors</p>
-                    <button onclick="
-                    playGame('Rock');
-                    ">Rock</button>
-
+                        <button onclick="
+                            playGame('Rock');
+                        ">Rock</button>
                         <button onclick="
                             playGame('Paper');
                         ">Paper</button>
-
                         <button onclick="
                             playGame('Scissors');
                         ">Scissors</button>
-                        
-                        <button onclick="
-                            alert(`Score - Win: ${Soccer.Win}, Lose: ${Soccer.Lose}, Tie: ${Soccer.Tie}`);
-                        ">Show Score</button>
-                <script>
+                        <p class="js-result"></p>
+                        <p class="js-moves"></p>
+                        <p class="js-score"></p>
 
-                        const Soccer = {
-                            Win : 0,
-                            Lose : 0,
-                            Tie : 0
+                        <button onclick="
+                            alert(`score - Win: ${score.Win}, Lose: ${score.Lose}, Tie: ${score.Tie}`);
+                        ">Show Score</button>
+                        <button onclick="
+                            score.Win = 0;
+                            score.Lose = 0;
+                            score.Tie = 0;
+                            localStorage.removeItem('score');
+                            UpdateScoreElement();
+                        ">Reset Score</button>
+                        
+                <script>
+                    let score = JSON.parse(localStorage.getItem("score")) || {
+                        Win: 0,
+                        Lose: 0,
+                        Tie: 0,
+                    };
+                    UpdateScoreElement();
+
+                    /*
+                    if (!score) {
+                        score = {
+                            Win: 0,
+                            Lose: 0,
+                            Tie: 0,
                         };
+                    }   
+                    */
                     function playGame(playerMove) {
                         const ComputerMove = PickComputerMove();
 
@@ -42,25 +61,34 @@
                             (ComputerMove === 'Paper' && playerMove === 'Scissors') ||
                             (ComputerMove === 'Scissors' && playerMove === 'Rock')
                         ) {
-                            result = 'You win!';
+                            result = 'You win!';        
                         } else {
                             result = 'You lose!';
                         }
                     
                 
                         if (result === 'You win!') {
-                            Soccer.Win += 1;
+                            score.Win += 1;
                         } else if (result === 'You lose!') {
-                            Soccer.Lose += 1;
+                            score.Lose += 1;
                         } else {
-                            Soccer.Tie += 1;
+                            score.Tie += 1;
                         }
-                        let output = `You Picked ${playerMove}. Computer Picked ${ComputerMove}. ${result}\n`;
-                        output += `Score - Win: ${Soccer.Win}, Lose: ${Soccer.Lose}, Tie: ${Soccer.Tie}`
-                        alert(output);
-                    }
                     
+                        localStorage.setItem("score", JSON.stringify(score));
+                        UpdateScoreElement();
 
+                        document.querySelector('.js-moves') .innerHTML =
+                        `You Picked ${playerMove}. Computer Picked ${ComputerMove}.`;
+                        document.querySelector('.js-result') .innerHTML =
+                        result;
+
+                    }
+
+                    function UpdateScoreElement() {
+                        document.querySelector('.js-score') .innerHTML =
+                        `Score - Win: ${score.Win}, Lose: ${score.Lose}, Tie: ${score.Tie}`;
+                    }
                     function PickComputerMove() {
                         const randomNumber = Math.random();
 
