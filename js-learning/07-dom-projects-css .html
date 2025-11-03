@@ -4,20 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dom projects</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .subscribe-button {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 30px;
+
+        }
+
+        .is-subscribed {
+            background-color: rgb(240, 240, 2400);
+            color: black;
+        }
+
+        .cost-input {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .calculate-button {
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 15px;
+            padding: 12px,15px;
+        }
+    </style>
 </head>
 <body>
     <p>YouTube Subscribe Button</p>
     <button onclick="
     Subscribe();
-    " class="js-subscribe-button">
+    " class="js-subscribe-button subscribe-button">
     Subscribe</button>
 
     <p>Amazon shipping calculater</p>
-    <input placeholder="cost of order" class="js-cost-input" onkeydown="
+    <input placeholder="cost of order" class="js-cost-input cost-input" onkeydown="
     handleCostKeydown(event);
     ">
     <button onclick="CalculateTotal();
-    ">calculate</button>
+    " class="calculate-button">calculate</button>
     <p class="js-total-cost"></p>
 <script>
     String(25)
@@ -51,8 +89,11 @@
                        
             if (buttonElement.innerText === 'Subscribe') {
                   buttonElement.innerHTML = 'Subscribed';
+                  buttonElement.classList.add
+                  ('is-subscribed');
             } else {
                 buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed')
             }
         }
     </script>

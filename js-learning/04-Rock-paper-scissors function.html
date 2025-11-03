@@ -4,33 +4,86 @@
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Rock Paper Scissors</title>
+                    <style>
+                        body {
+                            background-color: black;
+                            color: white;
+                            
+                            font-family: Arial, Helvetica, sans-serif;
+                            
+                        }
+
+                        .move-icon {
+                            height: 30px;
+
+                        }
+
+                        .move-button{
+                            background-color: transparent;
+                            border: 3px solid white;
+                            width: 120px;
+                            height: 120px;
+                            border-radius: 60px;
+                            margin-right: 15px;
+                            cursor: pointer;
+                        }
+
+                        .result{
+                            font-size: 25px;
+                            font-weight: bold;
+                            margin-top: 50px;
+
+                        }
+                        .score {
+                            margin-top: 60px;
+
+                        }
+
+                        .show-score-button {
+                            background-color: white;
+                            border: none;
+                            font-size: 15px;
+                            padding: 8px 15px;
+                            cursor: pointer;
+                        }
+                        .reset-score-button {
+                            background-color: white;
+                            border: none;
+                            font-size: 15px;
+                            padding: 8px 15px;
+                            cursor: pointer;
+
+                        }
+                    </style>
                 </head>
                 <body>
                     
                     <p>Rock Paper Scissors</p>
                         <button onclick="
                             playGame('Rock');
-                        ">Rock</button>
+                        " class="move-button"><img src="image/rock-emoji.png" class="move-icon"></button>
                         <button onclick="
                             playGame('Paper');
-                        ">Paper</button>
+                        " class="move-button"><img src="image/paper-emoji.png" class="move-icon"></button>
                         <button onclick="
                             playGame('Scissors');
-                        ">Scissors</button>
-                        <p class="js-result"></p>
-                        <p class="js-moves"></p>
-                        <p class="js-score"></p>
+                        " class="move-button"><img src="image/scissors-emoji.png" class="move-icon"></button>
+                        <p class="js-result result "></p>
+                        <p class="js-moves">
+                            
+                        </p>
+                        <p class="js-score score"></p>
 
                         <button onclick="
                             alert(`score - Win: ${score.Win}, Lose: ${score.Lose}, Tie: ${score.Tie}`);
-                        ">Show Score</button>
+                        " class="show-score-button">Show Score</button>
                         <button onclick="
                             score.Win = 0;
                             score.Lose = 0;
                             score.Tie = 0;
                             localStorage.removeItem('score');
                             UpdateScoreElement();
-                        ">Reset Score</button>
+                        " class="reset-score-button">Reset Score</button>
                         
                 <script>
                     let score = JSON.parse(localStorage.getItem("score")) || {
@@ -79,7 +132,10 @@
                         UpdateScoreElement();
 
                         document.querySelector('.js-moves') .innerHTML =
-                        `You Picked ${playerMove}. Computer Picked ${ComputerMove}.`;
+                        `You
+                            <img src="image/${PlayerMove}-emoji.png" class="move-icon">
+                            <img src="image/${ComputerMove}-emoji.png" class="move-icon">
+                            Computer.`;
                         document.querySelector('.js-result') .innerHTML =
                         result;
 
