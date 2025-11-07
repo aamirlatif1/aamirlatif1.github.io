@@ -1,8 +1,8 @@
 const todoList = [{
     Name: 'Make dinner', 
     duedate: '2022-10-12'
-    }],
-    [{
+    },
+    {
     Name: 'Make dinner', 
     duedate: '2022-10-12'
     }]
@@ -25,14 +25,13 @@ const todoList = [{
     `;
 
     todoListHTML += html;
-
 }
 
-document.querySelector ('.js-todo-list')
+document.querySelector ('.js-todo-list') 
     .innerHTML = todoListHTML;
 }
 
-function addtodo() {
+    function addtodo() {
     const inputElement = document.querySelector('.js-name-input');
 
    const name = inputElement.value;
