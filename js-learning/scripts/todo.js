@@ -37,4 +37,5 @@ function addtodo() {
     nameElement.value = '';
     dueDateElement.value = '';
     renderTodoList();
+    document.getElementById()
 }
