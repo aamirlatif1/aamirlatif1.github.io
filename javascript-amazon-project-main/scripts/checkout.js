@@ -1,15 +1,16 @@
     
     let cartSummaryHTML = '';
+    let cart = getCart();
     cart.forEach((cartItem) => {
         const productId = cartItem.productId;
 
     let matchingProduct;
-   products.forEach((product) => {
-     if (product.id === productId) {
-       matchingProduct = product;
-     }
-   });
-cartSummaryHTML += `
+    products.forEach((product) => {
+        if (product.id === productId) {
+        matchingProduct = product;
+        }
+    });
+    cartSummaryHTML += `
     <div class="cart-item-container">
         <div class="delivery-date">
             Delivery date: Tuesday, June 21
@@ -87,4 +88,7 @@ cartSummaryHTML += `
         </div>
 `;
 });
+
+let summary = document.querySelector('.order-summary');
+summary.innerHTML += cartSummaryHTML;
 console.log(cartSummaryHTML);

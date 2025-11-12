@@ -51,12 +51,14 @@ let productsHTML = '';
           </div>
       `;
     });
-
-    document.querySelector('.js-products-grid').innerHTML = productsHTML;
+    let grid = document.querySelector('.js-products-grid');
+    grid.innerHTML = productsHTML;
 
    
       function updateCartQuantity() {
          let cartQuantity = 0;
+         let cart = getCart();
+         console.log(cart);
         cart.forEach((item) => {
           cartQuantity += item.quantity;
         });
