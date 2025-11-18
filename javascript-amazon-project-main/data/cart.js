@@ -1,4 +1,4 @@
- const CartKey = 'shoringCart';
+ const CartKey = 'shoppingCart';
 
  function addtocart(productId){
   let storage = window.localStorage;
@@ -28,7 +28,14 @@ function getCart() {
   return []
 }
 
-function clearCart(){
-   let storage = window.localStorage;
-   storage.removeItem(CartKey);
+function removeFromCart(productId) {
+  let cart = getCart();  
+
+  const newCart = cart.filter((cartItem) => {
+    return cartItem.productId !== productId;
+  });
+
+  let storage = window.localStorage;
+  storage.setItem(CartKey, JSON.stringify(newCart));
+  
 }
