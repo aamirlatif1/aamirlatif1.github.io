@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="name" id="name"> <button id="play">Play</button>
+    <div id="display">Hello Mr. Aamir</div>
+    
+
+    <script>
+        let btn = document.getElementById("play");
+        btn.addEventListener("click", (evt) => {
+            let name = document.getElementById("name").value;
+            sendRequest(name);
+        });
+
+
+        function sendRequest(name) {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("display").innerHTML = this.responseText;
+            }
+            xhttp.open("POST", "http://127.0.0.1:8080/welcome?name="+name, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
