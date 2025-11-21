@@ -56,15 +56,52 @@ let todoData = {
 let ul = document.getElementById("todo-list");
 
 todoData.todo_list.forEach(function(item) {
-    let div = document.createElement("div");
-   
-    let cb = document.createElement("input");
-    cb.type = "checkbox";
-    cb.checked = (item.status === "done");
-    div.appendChild(cb);
-    let li = document.createElement("li");
-    div.appendChild = item.title;
-     li.appendChild(div);
-    ul.appendChild(li);
-
+  ul.appendChild(createRow(item));
 });
+
+function createRow(item) {
+  let li = document.createElement("li");  
+  li.appendChild(makeDiv(item));
+  return li;
+}
+
+function makeDiv(item) {
+  let div =  document.createElement("div");
+  div.appendChild(makeCheckBox(item));
+  let span = document.createElement("span");
+  let tt = document.createElement("textarea");
+  tt.classList.add("hidden");
+  div.append(tt);
+  div.appendChild(span);
+  div.addEventListener("dblclick", (evt) => {
+    span.classList.add("hidden");
+    tt.classList.remove("hidden");
+    tt.value = span.innerHTML;
+    tt.focus();
+  });
+  tt.addEventListener("focusout", (evt) => { 
+    tt.classList.add("hidden");
+    span.classList.remove("hidden");
+    span.innerHTML = tt.value;
+  })
+  span.innerHTML = item.title;
+  if (item.status === "done"){
+    span.classList.add("done");
+  }
+  return div;
+}
+
+function makeCheckBox(item) {
+  let cb = document.createElement("input");
+  cb.type = "checkbox";
+  cb.checked = item.status === "done";
+  cb.addEventListener("click", (evt) => {
+    let span = cb.parentNode.getElementsByTagName("span")[0];
+    if (evt.target.checked){
+      span.classList.add("done");
+    } else {
+      span.classList.remove("done");
+    }
+  })
+  return cb;
+}
