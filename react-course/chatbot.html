@@ -2,13 +2,49 @@
 <html>
   <head>
     <title>chat bot</title>
+    <style>
+      .js-container {
+       
+      }
+      .js-send-button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .chat-input {
+        margin-bottom: 20px;
+        padding: 12px 15px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        width: 300px;
+        flex-grow: 1;
+      }
+      .chat-input-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .chat-container {
+        border: 2px solid #ccc;
+        border-radius: 12px;
+        padding: 20px;
+        width: 400px;
+      }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-
+    <script src="https://unpkg.com/supersimpledev@8.6.4/external-library.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
@@ -18,23 +54,40 @@
         };
 
         function sendMessage() {
-          setChatMessages([
-            ...chatMessages,
+          const newChatMessages = [
+            ...newChatMessages,
             {
               message: inputText,
               sender: "User",
               id: crypto.randomUUID()
             }
+          ];
+          setChatMessages(newChatMessages);
+          const response = Chatbot.getResponse(inputText);
+          setChatMessages([
+            ...newChatMessages,
+            {
+              message: response,
+              sender: "robot",
+              id: crypto.randomUUID()
+            }
           ]);
+          console.log('Response from chatbot:', response);
+
+          setInputText('');
         } 
         return (
-          <div>
+          <div className="chat-input-container">
             <input 
               placeholder="Type your message..." 
               size="30"
               onChange={saveInputText}
+              value={inputText}
+              className="chat-input"
             />
-          </>
+            <button className="js-send-button" 
+            onClick={sendMessage}>Send</button>
+          </div>
         );
       }
       function ChatMessage ({ message, sender }) {
@@ -46,9 +99,25 @@
         );
       };
       function ChatMessages() {
-      const [chatMessages, setChatMessages] = array;
+      const [chatMessages, setChatMessages] = React.useState([ { 
+          message: "Hello Chatbot", 
+          sender: "User",
+          id: 'id1' 
+        },  { 
+          message: "Hello! How can I help you?", 
+          sender: "robot",
+          id: 'id2'
+        },  { 
+          message: "can you get me today date?", 
+          sender: "User",
+          id: 'id3' 
+        },  { 
+          message: "Today is June 7, 2024.", 
+          sender: "robot",
+          id: 'id4' 
+        }]);
         return (
-          <div>
+          <div >
             {chatMessages.map((chatMessage) => {
               return (
                 <ChatMessage 
@@ -64,7 +133,7 @@
 
 
       function App() {
-         const array = React.useState ([{ 
+         const [chatMessages, setChatMessages] = React.useState ([{ 
           message: "Hello Chatbot", 
           sender: "User",
           id: 'id1' 
@@ -83,13 +152,15 @@
         }]);
 
         return (
-          <div>
+          <div className="chat-container">
             <ChatInput 
             chatMessages={chatMessages}
             setChatMessages={setChatMessages}
             />
-            <ChatMessages />
-          </>
+            <ChatMessages
+              chatMessages={chatMessages}
+            />
+          </div>
         );
       };
       const container = document.querySelector('.js-container');
