@@ -16,6 +16,7 @@
         function saveInputText(event) {
           setInputText(event.target.value);
         };
+
         function sendMessage() {
           setChatMessages([
             ...chatMessages,
@@ -26,19 +27,14 @@
             }
           ]);
         } 
-        
-        setInputText('');
-
         return (
           <div>
             <input 
               placeholder="Type your message..." 
               size="30"
               onChange={saveInputText}
-             
             />
-            <button onClick={sendMessage}>Send</button>
-          </div>
+          </>
         );
       }
       function ChatMessage ({ message, sender }) {
@@ -49,8 +45,8 @@
           </div>
         );
       };
-      function ChatMessages({ chatMessages }) {
-      
+      function ChatMessages() {
+      const [chatMessages, setChatMessages] = array;
         return (
           <div>
             {chatMessages.map((chatMessage) => {
@@ -65,8 +61,10 @@
           </div>
         );
       };
+
+
       function App() {
-         const [ chatMessages, setChatMessages ] = React.useState ([{ 
+         const array = React.useState ([{ 
           message: "Hello Chatbot", 
           sender: "User",
           id: 'id1' 
@@ -83,16 +81,15 @@
           sender: "robot",
           id: 'id4' 
         }]);
+
         return (
           <div>
             <ChatInput 
             chatMessages={chatMessages}
             setChatMessages={setChatMessages}
             />
-            <ChatMessages 
-            chatMessages={chatMessages}
-            />
-          </div>
+            <ChatMessages />
+          </>
         );
       };
       const container = document.querySelector('.js-container');
