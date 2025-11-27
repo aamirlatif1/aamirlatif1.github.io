@@ -3,19 +3,26 @@
   <head>
     <title>chat bot</title>
     <style>
-      .js-container {
-       
+      body {
+        font-family: Arial, sans-serif;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        padding: 20px;
       }
       .js-send-button {
         background-color: green;
         color: white;
         border: none;
-        padding: 12px 20px;
+        padding: 10px 20px;
         font-size: 15px;
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-top: 5px ;
         cursor: pointer;
       }
+
       .chat-input {
         margin-bottom: 20px;
         padding: 12px 15px;
@@ -27,17 +34,83 @@
       }
       .chat-input-container {
         display: flex;
-        align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
+       
       }
+      .app-container {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+
       .chat-container {
-        border: 2px solid #ccc;
+        
         border-radius: 12px;
         padding: 20px;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
       }
+      .chat-message-user {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .chat-message-robot {
+        display: flex;
+        justify-content: start;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .user-message {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .robot-message {
+        display: flex;
+        justify-content: start;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .chat-message-text {
+        background-color: #b1afafbc;
+        padding: 10px 15px;
+        border-radius: 12px;
+        max-width: 70%;
+        font-size: 15px;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+      }
+      .chat-container {
+        height: 500px;
+        overflow-y: auto;
+        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+
+        
+      }
+      .chat-message-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .chat-messages-container {
+        flex-grow: 1;
+        margin-top: 10px;
+        overflow: scroll;
+        scrollbar-width: none;
+      }
+     
     </style>
   </head>
   <body>
@@ -77,8 +150,9 @@
               id: crypto.randomUUID()
             }
           ]);
-          console.log('Response from chatbot:', response);
+        
           setInputText('');
+          
         } 
         return (
           <div className="chat-input-container">
@@ -96,32 +170,27 @@
       }
       function ChatMessage ({ message, sender }) {
         return (
-          <div>
-            {sender === 'robot' && (<img src="robot.png" width="50" />)}
-            {message}{sender === 'User' && (<img src="user.png" width="50" />)}
+          <div className ={sender === 'robot' ? 'robot-message' : 'user-message'}>
+            {sender === 'robot' && (<img src="robot.png" className="chat-message-icon" />)}
+            <div className="chat-message-text">
+            {message}
+            </div>
+            {sender === 'User' && (<img src="user.png" className="chat-message-icon" />)}
           </div>
         );
       };
-      function ChatMessages() {
-      const [chatMessages, setChatMessages] = React.useState([ { 
-          message: "Hello Chatbot", 
-          sender: "User",
-          id: 'id1' 
-        },  { 
-          message: "Hello! How can I help you?", 
-          sender: "robot",
-          id: 'id2'
-        },  { 
-          message: "can you get me today date?", 
-          sender: "User",
-          id: 'id3' 
-        },  { 
-          message: "Today is June 7, 2024.", 
-          sender: "robot",
-          id: 'id4' 
-        }]);
+      function ChatMessages({ chatMessages }) {
+       const chatMessagesRef = React.useRef(null);
+        React.useEffect(() => {
+          const containerElem = chatMessagesRef.current;
+          if (containerElem) {
+            containerElem.scrollTop = containerElem.scrollHeight;
+          }
+        }, [chatMessages]);
+      
         return (
-          <div >
+          <div className="chat-messages-container"
+          ref={chatMessagesRef} >
             {chatMessages.map((chatMessage) => {
               return (
                 <ChatMessage 
@@ -157,12 +226,13 @@
 
         return (
           <div className="chat-container">
+            
+            <ChatMessages
+              chatMessages={chatMessages}
+            />
             <ChatInput 
             chatMessages={chatMessages}
             setChatMessages={setChatMessages}
-            />
-            <ChatMessages
-              chatMessages={chatMessages}
             />
           </div>
         );
