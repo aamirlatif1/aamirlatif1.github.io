@@ -1,0 +1,102 @@
+      .js-send-button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-top: 5px ;
+        margin-bottom: 5px;
+        width: 80px;
+        cursor: pointer;
+      }
+
+      .chat-input {
+        margin-bottom: 20px;
+        padding: 12px 15px;
+        font-size: 15px;
+        border-width: 1px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        width: 300px;
+        flex-grow: 1;
+      }
+      .chat-input-container {
+        display: flex;
+        margin-bottom: 60px;
+       
+      }
+      .app-container {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-container {
+        
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .chat-message-user {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .chat-message-robot {
+        display: flex;
+        justify-content: start;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .user-message {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .robot-message {
+        display: flex;
+        justify-content: start;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+      .chat-message-text {
+        background-color: #b1afafbc;
+        padding: 10px 15px;
+        border-radius: 12px;
+        max-width: 70%;
+        font-size: 15px;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+      }
+      .chat-container {
+        height: 500px;
+        overflow-y: auto;
+        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+
+        
+      }
+      .chat-message-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .chat-messages-container {
+        flex-grow: 1;
+        margin-top: 10px;
+        overflow: scroll;
+        scrollbar-width: none;
+      }
