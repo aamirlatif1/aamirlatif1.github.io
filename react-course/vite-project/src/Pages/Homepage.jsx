@@ -3,6 +3,13 @@ import { products } from '../../starting-code/data/products';
 import './HomePage.css';
 
 export function Homepage() {
+    fetch ('https://fakestoreapi.com/products')
+    .then ((response) => {
+        return response.json()
+        .then ((data) => {
+            console.log (data);
+        });
+    });
     return (
         <>
 
