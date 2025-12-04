@@ -7,13 +7,14 @@ export function Homepage() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get ('http://localhost:3000/api/products')
-        .then ((response) => {
-            setProducts(response.data);
-        }, []);
+        axios
+            .get('http://localhost:3000/api/products')
+            .then((response) => setProducts(response.data))
+            .catch((err) => console.error('Failed to load products', err));
+    }, []);
+
     return (
         <>
-
             <title>Ecommerce Project</title>
             <Header />
             <div className="home-page">
@@ -22,8 +23,11 @@ export function Homepage() {
                         return (
                             <div key={product.id} className="product-container">
                                 <div className="product-image-container">
-                                    <img className="product-image"
-                                        src={product.image} />
+                                    <img
+                                        className="product-image"
+                                        src={product.image}
+                                        alt={product.name || 'product image'}
+                                    />
                                 </div>
 
                                 <div className="product-name limit-text-to-2-lines">
@@ -31,8 +35,11 @@ export function Homepage() {
                                 </div>
 
                                 <div className="product-rating-container">
-                                    <img className="product-rating-stars"
-                                        src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
+                                    <img
+                                        className="product-rating-stars"
+                                        src={`images/ratings/rating-${product.rating.stars * 10}.png`}
+                                        alt={`${product.rating.stars} stars`}
+                                    />
                                     <div className="product-rating-count link-primary">
                                         {product.ratingCount}
                                     </div>
@@ -44,23 +51,18 @@ export function Homepage() {
 
                                 <div className="product-quantity-container">
                                     <select>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+                                        {Array.from({ length: 10 }, (_, i) => (
+                                            <option key={i + 1} value={i + 1}>
+                                                {i + 1}
+                                            </option>
+                                        ))}
                                     </select>
                                 </div>
 
-                                <div className="product-spacer"></div>
+                                <div className="product-spacer" />
 
                                 <div className="added-to-cart">
-                                    <img src="images/icons/checkmark.png" />
+                                    <img src="images/icons/checkmark.png" alt="added" />
                                     Added
                                 </div>
 
@@ -74,5 +76,4 @@ export function Homepage() {
             </div>
         </>
     );
-});
 }
