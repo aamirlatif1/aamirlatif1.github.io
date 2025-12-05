@@ -5,18 +5,26 @@ import './HomePage.css';
 
 export function Homepage() {
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         axios
             .get('http://localhost:3000/api/products')
             .then((response) => setProducts(response.data))
-            .catch((err) => console.error('Failed to load products', err));
+            .catch((err) => console.error('Failed to load products', err
+            ));
+        axios
+            .get('http://localhost:3000/api/cart-items')
+            .then((response) => setCart(response.data))
+            .catch((err) => console.error('Failed to load cart', err));            
+
+
     }, []);
 
     return (
         <>
             <title>Ecommerce Project</title>
-            <Header />
+            <Header cart={cart} />
             <div className="home-page">
                 <div className="products-grid">
                     {products.map((product) => {
