@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import './HomePage.css';
 
-export function Homepage() {
+export function Homepage({ cart }) {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    
 
     useEffect(() => {
         axios
@@ -13,10 +13,7 @@ export function Homepage() {
             .then((response) => setProducts(response.data))
             .catch((err) => console.error('Failed to load products', err
             ));
-        axios
-            .get('/api/cart-items')
-            .then((response) => setCart(response.data))
-            .catch((err) => console.error('Failed to load cart', err));            
+                    
 
 
     }, []);
