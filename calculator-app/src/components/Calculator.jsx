@@ -1,12 +1,10 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function Calculator() {
   const [value, setValue] = useState("");
 
-  
-  const handleClick = (val) => {
-  
+  const handleClick = useCallback((val) => {
     let v = val;
     const last = value.slice(-1);
     if (value === "" && (/^[+*/%]$/.test(v))) return;
@@ -24,11 +22,11 @@ export default function Calculator() {
       if (current === "") v = "0.";
     }
     setValue((s) => s + v);
-  };
+  }, [value]);
 
-  const del = () => setValue((s) => s.slice(0, -1));
+  const del = useCallback(() => setValue((s) => s.slice(0, -1)), []);
 
-  const calculate = () => {
+  const calculate = useCallback(() => {
     if (!value || value.trim() === "") return;
     try {
       if (!/^[-+*/%()0-9.\s]+$/.test(value)) {
@@ -41,14 +39,11 @@ export default function Calculator() {
         .replace(/--/g, "+")
         .replace(/\+-/g, "-")
         .replace(/-\+/g, "-");
-      
+
       const val = Function('"use strict"; return (' + cleaned + ")")();
       if (typeof val === "number" && isFinite(val)) {
         setValue(
-          String(Number.parseFloat(String(val)).toPrecision(12)).replace(
-            /(?:\.0+|0+)$/,
-            ""
-          )
+          String(Number.parseFloat(String(val)).toPrecision(12)).replace(/(?:\.0+|0+)$/, "")
         );
       } else {
         setValue("Error");
@@ -56,18 +51,16 @@ export default function Calculator() {
     } catch {
       setValue("Error");
     }
-  };
+  }, [value]);
 
-  const clear = () => setValue("");
+  const clear = useCallback(() => setValue(""), []);
 
-  
   useEffect(() => {
     const onKey = (e) => {
       const k = e.key;
       if (/^[0-9]$/.test(k)) handleClick(k);
       else if (k === ".") handleClick(".");
-      else if (k === "+" || k === "-" || k === "*" || k === "/" || k === "%")
-        handleClick(k);
+      else if (k === "+" || k === "-" || k === "*" || k === "/" || k === "%") handleClick(k);
       else if (k === "Enter" || k === "=") {
         e.preventDefault();
         calculate();
@@ -81,7 +74,7 @@ export default function Calculator() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [value]); 
+  }, [value, handleClick, calculate, del, clear]);
 
   const buttons = [
     ["C", "⌫", "%", "/"],
@@ -93,28 +86,18 @@ export default function Calculator() {
   ];
 
   return (
-    <div className="w-full max-w-sm mx-auto mt-10 p-6 
-      bg-white/10 backdrop-blur-xl border border-white/20 
-      rounded-2xl shadow-xl">
-
+    <div className="w-full max-w-md mx-auto mt-10 p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl">
       <input
         value={value}
         readOnly
-        className="w-full h-30 text-right px-4 
-          text-8xl font-bold tracking-wider 
-          bg-black/40 text-white rounded-xl 
-          mb-6 md:text-8xl"
-          style={{ minHeight: 70 }}
-
+        className="w-full h-20 md:h-24 text-right px-6 text-4xl md:text-5xl font-bold tracking-wider bg-black/40 text-white rounded-xl mb-6"
+        style={{ minHeight: 64 }}      
       />
 
-      {/* Buttons */}
       <div className="grid grid-cols-4 gap-4">
-
         {buttons.flat().map((b, i) => {
           const isEqual = b === "=";
           const isOperator = (/^[+\-*/%]$/.test(b));
-          const isSpecial = b === "C" || b === "⌫";
 
           const handle = () => {
             if (b === "C") clear();
@@ -127,18 +110,14 @@ export default function Calculator() {
             <button
               key={i}
               onClick={handle}
-              className={`py-4 sm:py-6 px-3 sm:px-4 text-2xl sm:text-3xl font-bold 
-                ${isEqual ? "col-span-4 bg-green-500 text-white" : isOperator ? "bg-white/20 text-white" : "bg-white/10 text-white"}
-                rounded-xl transition active:scale-95`}
+              className={`py-4 sm:py-6 px-3 sm:px-4 text-2xl sm:text-3xl font-bold ${isEqual ? "col-span-4 bg-green-500 text-white" : isOperator ? "bg-white/20 text-white" : "bg-white/10 text-white"} rounded-xl transition active:scale-95`}
               style={{ minHeight: 64 }}
             >
               {b}
             </button>
           );
         })}
-
       </div>
     </div>
   );
 }
-// ...existing code...
