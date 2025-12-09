@@ -1,11 +1,11 @@
 import { Link } from 'react-router';
 import './Header.css';
-export function Header({cart}) {
-    let totalQuantity = 0;
-    
-    cart.forEach(cartItem => {
-        totalQuantity += cartItem.quantity;
-    });
+
+export function Header({ cart = [] }) {
+    const totalQuantity = (Array.isArray(cart) ? cart : []).reduce(
+        (sum, cartItem) => sum + (Number(cartItem?.quantity) || 0),
+        0
+    );
     return (
         <div className="header">
         <div className="left-section">
