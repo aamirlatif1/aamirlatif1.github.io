@@ -336,13 +336,13 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={imageVariants}
-              className="hidden lg:flex justify-center lg:justify-end"
+              className="hidden lg:flex justify-center lg:justify-end -mr-32"
             >
               <div className="relative">
                 {/* Tech Stack Tags- Desktop */}
                 <motion.div
                   variants={itemVariants}
-                  className="flex items-center space-x-8 text-xs uppercase tracking-widest absolute -top-16 left-28"
+                  className="flex items-center space-x-8 text-xs uppercase tracking-widest absolute -top-16 "
                 >
                   <span
                     className={isDarkMode ? "text-gray-600" : "text-gray-500"}
