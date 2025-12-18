@@ -18,7 +18,7 @@ const SkillsSection = () => {
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
     const skillBarVariants = {
-        hidden: { width: 0, opacity: 0 },
+        hidden: { width: '0%', opacity: 0 },
         visible: (level) => ({
             width: `${level}%`,
             opacity: 1,
@@ -132,12 +132,30 @@ const SkillsSection = () => {
                                                     }`}
                                             >
                                                 <motion.div
-                                                    variants={skillBarVariants}
-                                                    initial="hidden"
-                                                    animate={isInView ? "visible" : "hidden"}
-                                                    custom={skill.level}
-                                                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full relative"
+                                                    initial={{ width: '0%', opacity: 0 }}
+                                                    animate={{
+                                                        width: isInView ? `${skill.level}%` : '0%',
+                                                        opacity: isInView ? 1 : 0,
+                                                    }}
+                                                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
+                                                    className="rounded-full relative overflow-hidden"
                                                 >
+                                                    {/* Light theme gradient layer */}
+                                                    <motion.div
+                                                        className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500"
+                                                        initial={{ opacity: isDarkMode ? 0 : 1 }}
+                                                        animate={{ opacity: isDarkMode ? 0 : 1 }}
+                                                        transition={{ duration: 0.35 }}
+                                                    />
+
+                                                    {/* Dark theme gradient layer */}
+                                                    <motion.div
+                                                        className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600"
+                                                        initial={{ opacity: isDarkMode ? 1 : 0 }}
+                                                        animate={{ opacity: isDarkMode ? 1 : 0 }}
+                                                        transition={{ duration: 0.35 }}
+                                                    />
+
                                                     <div className="absolute inset-0 bg-white/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                                 </motion.div>
                                             </div>

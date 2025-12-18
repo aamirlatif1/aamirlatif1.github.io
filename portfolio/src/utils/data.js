@@ -6,6 +6,10 @@ import {
     Phone,
     Mail,
     MapPin,
+    Icon,
+    Heart,
+    Coffee,
+    BookOpen,
 } from "lucide-react";
 import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 import auto1_group_logo from "../assets/images/auto1_group_logo.jpeg";
@@ -61,9 +65,9 @@ export const TECH_STACK = [
 ];
 export const STATS = [
     {number: "50+", label: "Projects Completed" },
-    {number: "2", label: "Years of Experience" },
-    {number: "10+", label: "Happy Clients" },
-    {number: "5", label: "Certifications" },
+    {number: "18", label: "Years of Experience" },
+    {number: "100+", label: "Happy Clients" },
+    {number: "15", label: "Certifications" },
 ];
 export const PROJECTS = [
     {
@@ -116,6 +120,23 @@ export const WORK_EXPERIENCE = [
         ],
     },
 ];
+export const PASSIONS = [
+    {
+        Icon: Heart,
+        title: "Uesr Experience",
+        description: "Developed and maintained web applications using React.js and Redux.",
+    },
+   {
+        Icon: BookOpen,
+        title: "Continuous Learning",
+        description: "Developed and maintained web applications using React.js and Redux.",
+    },
+    {
+        Icon: Coffee,
+        title: "Problem Solving",
+        description: "Developed and maintained web applications using React.js and Redux.",
+    },
+];
 export const EDUCATION = [
     {
         institution: "University of Technology",
@@ -128,13 +149,41 @@ export const EDUCATION = [
         ],
     },
 ];
-export const CONTACT_INFO = {
+export const CONTACT_INFO = [
+{
     phone: "+123 456 7890",
     email: "email@example.com",
     address: "123 Main St, Anytown, USA",
-};
-export const SOCIAL_LINKS = {
-    github: "", 
+},
+];
+export const SOCIAL_LINKS = [
+    {
+       name:  "GitHub",
+       icon: "FiGithub",
+       url:   "https://github.com",
+       color:   "hover:text-gray-400",
+       bgColor: "hover:bg-gray-800", 
     twitter: "https://twitter.com/yourprofile",
-    // Add more social links as needed
-};
+    },
+    {
+        name:  "LinkedIn",
+       icon: "FiLinkedin",
+       url:   "https://linkedin.com",
+       color:   "hover:text-blue-400",
+       bgColor: "hover:bg-blue-500/10",
+    },
+    {
+        name:  "Twitter",
+       icon: "FiTwitter",
+       url:   "https://twitter.com/",
+       color:   "hover:text-sky-400",
+       bgColor: "hover:bg-sky-500/10",
+    },
+    {
+        name:  "Email",
+       icon: "Mail",
+       url:   "mailto:alex@example.com",
+       color:   "hover:text-green-400",
+       bgColor: "hover:bg-green-500/10",
+    },
+];

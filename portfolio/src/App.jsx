@@ -4,6 +4,7 @@ import Navbar from './components/sections/Navbar';
 import HeroSection from './components/sections/HeroSection';
 import SkillsSection from './components/sections/SkillsSection';
 import ProjectsSection from './components/sections/ProjectsSection';
+import AboutSection from './components/sections/AboutSection';
 
 
 export const App = () => {
@@ -14,6 +15,7 @@ export const App = () => {
       <HeroSection />
       <SkillsSection />
       <ProjectsSection /> 
+      <AboutSection />
     </div>
     </ThemeProvider>
   )

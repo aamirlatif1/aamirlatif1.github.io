@@ -3,7 +3,7 @@ import { ExternalLink } from "lucide-react"
 
 import { FiGithub } from "react-icons/fi"
 
-const ProjectCard = ({project, isDarkMode}) => {
+const ProjectCard = ({project,  isDarkMode}) => {
     const cardVariants = {
         hidden: { y: 20, opacity: 0 },
         visible:{
@@ -104,6 +104,7 @@ const ProjectCard = ({project, isDarkMode}) => {
           <p className={`text-sm mb-4 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
             {project.description}
           </p>
+          {/* Tech Stack Tags */}
           <div className="flex flex-wrap gap-2">
             {project.technologies?.map((tech) => (
               <span
