@@ -8,9 +8,8 @@ import {
     MapPin,
 } from "lucide-react";
 import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
-import auto1_group_logo from "../assets/images/auto1_group_logo.png";
-import brilliantgamezlabs_logo from "../assets/images/brilliantgamezlabs_logo.png";
-import { number } from "framer-motion";
+import auto1_group_logo from "../assets/images/auto1_group_logo.jpeg";
+import brilliantgamezlabs_logo from "../assets/images/brilliantgamezlabs_logo.jpeg";
 export const icons = {
     code: Code2,
     graduationCap: GraduationCap,

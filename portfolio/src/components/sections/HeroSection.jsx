@@ -367,7 +367,7 @@ const HeroSection = () => {
                   <span
                     className={isDarkMode ? "text-gray-600" : "text-gray-500"}
                   >
-                    Full Stack
+                    FullStack
                   </span>
                   <span
                     className={isDarkMode ? "text-gray-700" : "text-gray-400"}

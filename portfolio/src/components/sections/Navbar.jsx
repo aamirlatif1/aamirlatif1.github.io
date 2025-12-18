@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, useScroll, AnimatePresence } from 'framer-motion';
-import { Code2, Sun, Moon, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Code2, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
                         <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => toggleDarkMode && toggleDarkMode()}
+                            onClick={toggleDarkMode}
                             className={`p-2 rounded-full transition-colors ${isDarkMode ? 'text-gray-400 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'}`}
                         >
                             {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -57,7 +57,7 @@ const Navbar = () => {
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
+                        onClick={toggleDarkMode}
                         className={`p-2 rounded-full transition-colors ${isDarkMode ? 
                             'text-gray-400 hover:text-white hover:bg-gray-800' : 
                             'text-gray-600 hover:text-gray-900 hover:bg-gray-200'}`}
@@ -90,11 +90,11 @@ const Navbar = () => {
                         exit={{ height: 0, opacity: 0, y: -20 }}
                         className={`md:hidden mt-4 space-y-4 overflow-hidden ${isDarkMode ? 'bg-gray-950/90' : 'bg-gray-50/90'} p-4 rounded-lg border ${isDarkMode ? 'border-gray-800' : 'border-gray-200'}`}
                      >
-                        {['home','about','skills','projects','contact'].map((item) => (
+                        {sections.map((item) => (
                             <motion.button
                                 key={item}
                                 whileHover={{ x: 5 }}
-                                onClick={() => scrollToSection(item.toLowerCase())}
+                                onClick={() => scrollToSection(item)}
                                 className={`block w-full text-left text-sm uppercase tracking-widest transition-colors ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                             >
                                 {item.charAt(0).toUpperCase() + item.slice(1)}
