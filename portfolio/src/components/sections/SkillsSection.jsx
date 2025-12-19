@@ -121,14 +121,14 @@ const SkillsSection = () => {
                                             <div className="flex justify-between items-center mb-2">
                                                 <span className="text-sm font-medium">{skill.name}</span>
                                                 <span
-                                                    className={`text-xs ${isDarkMode ? "bg-gray-500" : "bg-gray-600"
+                                                    className={`text-xs ${isDarkMode ? "bg-red-500" : "bg-red-400"
                                                         }`}
                                                 >
                                                     {skill.level}%
                                                 </span>
                                             </div>
                                             <div
-                                                className={`h-2 rounded-full overflow-hidden ${isDarkMode ? "bg-gray-800" : "bg-gray-200"
+                                                className={`h-2 rounded-full overflow-hidden ${isDarkMode ? "bg-blue-800" : "bg-gray-200"
                                                     }`}
                                             >
                                                 <motion.div
@@ -138,11 +138,11 @@ const SkillsSection = () => {
                                                         opacity: isInView ? 1 : 0,
                                                     }}
                                                     transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
-                                                    className="rounded-full relative overflow-hidden"
+                                                    className="h-full rounded-full relative overflow-hidden"
                                                 >
                                                     {/* Light theme gradient layer */}
                                                     <motion.div
-                                                        className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500"
+                                                        className="h-full w-full absolute inset-0 bg-gradient-to-r from-red-300 to-blue-500"
                                                         initial={{ opacity: isDarkMode ? 0 : 1 }}
                                                         animate={{ opacity: isDarkMode ? 0 : 1 }}
                                                         transition={{ duration: 0.35 }}
@@ -150,7 +150,7 @@ const SkillsSection = () => {
 
                                                     {/* Dark theme gradient layer */}
                                                     <motion.div
-                                                        className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600"
+                                                        className="h-full w-full absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-600"
                                                         initial={{ opacity: isDarkMode ? 1 : 0 }}
                                                         animate={{ opacity: isDarkMode ? 1 : 0 }}
                                                         transition={{ duration: 0.35 }}
