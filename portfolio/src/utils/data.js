@@ -98,10 +98,15 @@ export const PROJECTS = [
 ];
 export const WORK_EXPERIENCE = [
     {
+        year: "2022 - Present",
+        title: "Frontend Developer",
         company: "Auto1 Group",
+        icon: Code2,
+        color: "bg-blue-500",
         logo: auto1_group_logo,
         position: "Frontend Developer",
         duration: "Jan 2022 - Present",
+        description: "Developed and maintained web applications using React.js and Redux. Collaborated with cross-functional teams to define, design, and ship new features. Optimized applications for maximum speed and scalability.",
         responsibilities: [
             "Developed and maintained web applications using React.js and Redux.",
             "Collaborated with cross-functional teams to define, design, and ship new features.",
@@ -109,10 +114,15 @@ export const WORK_EXPERIENCE = [
         ],
     },
     {
+        year: "2020 - 2021",
+        title: "Junior Web Developer",
         company: "Brilliant Gamez Labs",
+        icon: Briefcase,
+        color: "bg-purple-500",
         logo: brilliantgamezlabs_logo,
         position: "Junior Web Developer",
         duration: "Jun 2020 - Dec 2021",
+        description: "Assisted in the development of web applications using HTML, CSS, and JavaScript. Worked closely with senior developers to learn best practices and improve coding skills. Participated in code reviews and team meetings to enhance project outcomes.",
         responsibilities: [
             "Assisted in the development of web applications using HTML, CSS, and JavaScript.",
             "Worked closely with senior developers to learn best practices and improve coding skills.",
