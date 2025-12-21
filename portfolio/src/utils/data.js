@@ -164,6 +164,7 @@ export const CONTACT_INFO = [
     phone: "+123 456 7890",
     email: "email@example.com",
     address: "123 Main St, Anytown, USA",
+    icon: Phone
 },
 ];
 export const SOCIAL_LINKS = [
