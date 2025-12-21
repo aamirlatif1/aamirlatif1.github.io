@@ -17,7 +17,7 @@ const ContactSection = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const sectionRef = useState(null);
+    const sectionRef = useRef(null);
     const isInview = useInView(sectionRef, { once: true, margin: "-100px" });
 
     const { scrollYProgress } = useScroll({
@@ -221,9 +221,9 @@ const ContactSection = () => {
                     <motion.div variants={containerVariants}>
                         <h3 className="text-xl font-medium mb-6">Follow Me</h3>
                         <div className="grid grid-cols-2 gap-4">
-                            {SOCIAL_LINKS.map((social, index) => (
+                            {SOCIAL_LINKS.map((social) => (
                                 <motion.a
-                                    key={index}
+                                    key={social.name}
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"

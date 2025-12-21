@@ -160,41 +160,49 @@ export const EDUCATION = [
     },
 ];
 export const CONTACT_INFO = [
-{
-    phone: "+123 456 7890",
-    email: "email@example.com",
-    address: "123 Main St, Anytown, USA",
-    icon: Phone
-},
+    {
+        label: "Phone",
+        value: "+123 456 7890",
+        icon: Phone
+    },
+    {
+        label: "Email",
+        value: "email@example.com",
+        icon: Mail
+    },
+    {
+        label: "Address",
+        value: "123 Main St, Anytown, USA",
+        icon: MapPin
+    }
 ];
 export const SOCIAL_LINKS = [
     {
-       name:  "GitHub",
-       icon: "FiGithub",
-       url:   "https://github.com",
-       color:   "hover:text-gray-400",
-       bgColor: "hover:bg-gray-800", 
-    twitter: "https://twitter.com/yourprofile",
+        name: "GitHub",
+        icon: BsGithub,
+        url: "https://github.com",
+        color: "hover:text-gray-400",
+        bgColor: "hover:bg-gray-800"
     },
     {
-        name:  "LinkedIn",
-       icon: "FiLinkedin",
-       url:   "https://linkedin.com",
-       color:   "hover:text-blue-400",
-       bgColor: "hover:bg-blue-500/10",
+        name: "LinkedIn",
+        icon: BsLinkedin,
+        url: "https://linkedin.com",
+        color: "hover:text-blue-400",
+        bgColor: "hover:bg-blue-500/10"
     },
     {
-        name:  "Twitter",
-       icon: "FiTwitter",
-       url:   "https://twitter.com/",
-       color:   "hover:text-sky-400",
-       bgColor: "hover:bg-sky-500/10",
+        name: "Twitter",
+        icon: BsTwitter,
+        url: "https://twitter.com/",
+        color: "hover:text-sky-400",
+        bgColor: "hover:bg-sky-500/10"
     },
     {
-        name:  "Email",
-       icon: "Mail",
-       url:   "mailto:alex@example.com",
-       color:   "hover:text-green-400",
-       bgColor: "hover:bg-green-500/10",
-    },
+        name: "Email",
+        icon: Mail,
+        url: "mailto:alex@example.com",
+        color: "hover:text-green-400",
+        bgColor: "hover:bg-green-500/10"
+    }
 ];

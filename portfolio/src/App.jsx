@@ -11,7 +11,7 @@ import ContactSection from './components/sections/ContactSection';
 export const App = () => {
   return (
     <ThemeProvider>
-    <div className="pb-[100vh]">
+    <div className="relative pb-[100vh]">
       <Navbar />
       <HeroSection />
       <SkillsSection />
