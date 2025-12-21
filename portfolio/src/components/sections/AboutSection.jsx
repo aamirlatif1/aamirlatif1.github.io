@@ -220,6 +220,37 @@ const AboutSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Call To Action */}
+
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="text-center mt-20"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col items-center space-y-6"
+              >
+            <p
+              className={`text-lg ${
+                isDarkMode ? "text-gray-400" : "text-gray-600"
+              }`}    
+              >
+                Ready to bring your idea to life?
+              </p>
+              <motion.button
+               whileHover={{ y: -2, scale: 1.05 }}
+               whileTap={{ scale: 0.98}}
+               className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300"
+               >
+                Lets Work Together 
+              </motion.button>
+            </motion.div>
+           </motion.div>   
+
+
       </div>
     </section>
   );
