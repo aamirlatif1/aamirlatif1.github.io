@@ -6,18 +6,20 @@ import SkillsSection from './components/sections/SkillsSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import AboutSection from './components/sections/AboutSection';
 import ContactSection from './components/sections/ContactSection';
+import Footer from './components/sections/Footer';
 
 
 export const App = () => {
   return (
     <ThemeProvider>
-    <div className="relative pb-[100vh]">
+    <div>
       <Navbar />
       <HeroSection />
       <SkillsSection />
       <ProjectsSection /> 
       <AboutSection />
       <ContactSection />
+      <Footer />
     </div>
     </ThemeProvider>
   )

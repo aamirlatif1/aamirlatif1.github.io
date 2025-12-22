@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { Send } from "lucide-react"
+import { Contact, Send } from "lucide-react"
 import { useTheme } from "../../context/ThemeContext";
 import { CONTACT_INFO, SOCIAL_LINKS } from "../../utils/data";
 import { containerVariants, itemVariants } from "../../utils/helper";
@@ -201,7 +201,7 @@ const ContactSection = () => {
                                         className={`p-3 rounded-lg ${isDarkMode ? "bg-gray-700" : "bg-white"
                                             }`}
                                     >
-                                        
+                                    <info.icon size={20} className="text-blue-500" />    
                                     </div>
                                     <div>
                                         <div
@@ -265,7 +265,41 @@ const ContactSection = () => {
                     </motion.div>
                 </motion.div>
 
-
+                {/* Bottom CTA */}
+                <motion.div
+                    initial="hidden"
+                    animate={isInview ? "visible" : "hidden"}
+                    variants={containerVariants}
+                    className="text-center mt-20"
+                >
+                <motion.div
+                    variants={itemVariants}
+                    className={`max-w-2xl mx-auto p-8 rounded-2xl border ${
+                        isDarkMode ? "bg-gray-800/30 border-gray-700" : "bg-gray-50/50 border-gray-200"
+                    }`}
+                >
+                    <h3 className="text-xl font-medium mb-4">Prefer a quick call?</h3>
+                    <p 
+                        className={`${
+                            isDarkMode ? "text-gray-400" : "text-gray-600"
+                        } mb-6`}
+                    >
+                        Sometime a conversation is worth a thousand message.Feel Free
+                        to schedule a call to discuss your projects
+                    </p>
+                <motion.button
+                    whileHover={{ y: -2, scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`px-6 py-3 rounded-full border font-medium transition-all duration-300 ${
+                        isDarkMode 
+                            ? "border-gray-500 hover:border-blue-500 hover:text-blue-400"
+                            : "bg-gray-300 hover:border-blue-500 hover:text-blue-600"
+                    }`}
+                >
+                    Schedule a Call
+                    </motion.button>
+               </motion.div>
+               </motion.div>                                 
             </div>
         </div>
 
