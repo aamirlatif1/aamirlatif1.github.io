@@ -121,7 +121,7 @@ const scrollY = useTransform(scrollYProgress, [0, 1], [0, -50]);
                     >
                         <Code2 size={20} /> 
                     </motion.div>
-                        <span>Aamir Lafit</span>
+                        <span>Aamir Latif</span>
                 </motion.div>
                 <motion.p
                     variants={itemVariants}

@@ -25,7 +25,7 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <motion.div whileHover={{ scale: 1.05 }} className="flex items-center cursor-pointer">
                         <Code2 size={24} className="text-blue-500" />
-                        <span className="text-lg ml-2">Time To Program</span>
+                        <span className={`text-xl ml-2 ${isDarkMode ? 'text-gray-400 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'}`}>Aamir Latif</span>
                     </motion.div>
 
                     {/* Desktop Menu */}

@@ -129,7 +129,7 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className={`text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-400" : "text-gray-600"}mb-4`}
               >
-                Full Stack Developer
+                Staff Software Engineer
               </motion.div>
               <motion.h1
                 variants={itemVariants}
@@ -137,14 +137,14 @@ const HeroSection = () => {
               >
                 <span
                   className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
-                  Building Digital
+                  Building applications
                 </span>
                 <span className="text-blue-500 font-medium ml-2">
-                  experiences
+                  scalable
                 </span>
                 <br />
                 <span className={isDarkMode ? "text-white" : "text-gray-900"}>
-                  that matter
+                  better
                 </span>
               </motion.h1>
               <motion.p
@@ -253,7 +253,7 @@ const HeroSection = () => {
                 variants={textVariants}
                 className={`text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-400" : "text-gray-600"}mb-4`}
               >
-                Full Stack Developer
+                Staff Software Engineer
               </motion.div>
               <motion.h1
                 variants={itemVariants}
@@ -262,17 +262,17 @@ const HeroSection = () => {
                 <span
                   className={`${isDarkMode ? "text-white" : "text-gray-900"}`}
                 >
-                  Building Digital
+                  Building apps
                 </span>
                 <br />
                 <span className="text-blue-500 font-medium">
-                  experiences
+                  those scale
                 </span>
                 <br />
                 <span
                   className={isDarkMode ? "text-white" : "text-gray-900"}
                 >
-                  that matter
+                  better
                 </span>
               </motion.h1>
               <motion.p
@@ -280,9 +280,10 @@ const HeroSection = () => {
                 className={`text-xl ${isDarkMode ? "text-gray-400" : "text-gray-600"
                   } mb-12 font-light leading-relaxed max-w-2xl`}
               >
-                I am a passionate Full Stack Developer with experience in building
-                web applications using modern technologies. I love creating beautiful
-                and functional digital experiences that solve real-world problems.
+                Staff-level backend engineer with extensive experience in Go, Java, and cloud-native systems. Expert in
+                microservices, Kubernetes, event-driven architecture, and CI/CD. Known for delivering reliable MVPs, improving
+                code quality through testing and DDD, mentoring teams, and building scalable systems across fintech, payments,
+                and platform engineering.
               </motion.p>
               {/* Call-to-Action Buttons-Desktop */}
               <motion.div variants={itemVariants} className="flex gap-6 mb-8">
@@ -347,37 +348,22 @@ const HeroSection = () => {
                   <span
                     className={isDarkMode ? "text-gray-600" : "text-gray-500"}
                   >
-                    React
-                  </span>
-                  <span
-                    className={isDarkMode ? "text-gray-700" : "text-gray-400"}
-                  >
-                    .
+                    Golang
                   </span>
                   <span
                     className={isDarkMode ? "text-gray-600" : "text-gray-500"}
                   >
-                    JavaScript
-                  </span>
-                  <span
-                    className={isDarkMode ? "text-gray-700" : "text-gray-400"}
-                  >
-                    .
+                    Java
                   </span>
                   <span
                     className={isDarkMode ? "text-gray-600" : "text-gray-500"}
                   >
-                    FullStack
-                  </span>
-                  <span
-                    className={isDarkMode ? "text-gray-700" : "text-gray-400"}
-                  >
-                    .
+                    Kubernetes
                   </span>
                   <span
                     className={isDarkMode ? "text-gray-600" : "text-gray-500"}
                   >
-                    Developer
+                    Microservices
                   </span>
                 </motion.div>
                 <motion.div

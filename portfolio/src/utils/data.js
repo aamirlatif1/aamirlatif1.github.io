@@ -99,8 +99,8 @@ export const PROJECTS = [
 export const WORK_EXPERIENCE = [
     {
         year: "2022 - Present",
-        title: "Frontend Developer",
-        company: "Auto1 Group",
+        title: "Staff Software Engineer",
+        company: "IONOS SE",
         icon: Code2,
         color: "bg-blue-500",
         logo: auto1_group_logo,
