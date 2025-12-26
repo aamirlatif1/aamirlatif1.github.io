@@ -170,9 +170,9 @@ const AboutSection = () => {
                 }`}
             />
             <div className="space-y-8">
-              {WORK_EXPERIENCE.map((step, index) => (
+              {WORK_EXPERIENCE.map((exp, index) => (
                 <motion.div
-                  key={step.year}
+                  key={exp.year}
                   variants={stepVariants}
                   index={index}
                   whileHover={{ x: 4 }}
@@ -180,9 +180,9 @@ const AboutSection = () => {
                 >
                   {/*Timeline Dot*/}
                   <div
-                    className={`relative z-10 flex-shrink-0 w-16 h-16 rounded-full ${step.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    className={`relative z-10 flex-shrink-0 w-16 h-16 rounded-full ${exp.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <step.icon size={24} className="text-white" />
+                    <exp.icon size={24} className="text-white" />
                   </div>
                   {/*Contact*/}
                   <div
@@ -192,28 +192,26 @@ const AboutSection = () => {
                       } backdrop-blur-sm`}
                   >
                     <div className="flex items justify-between mb-2">
-                      <h4 className="text-xl font-medium">{step.title}</h4>
+                      <h4 className="text-xl font-medium">{exp.title}</h4>
                       <span
                         className={`text-sm px-3 py-1 rounded-full ${isDarkMode
                             ? "bg-gray-700 text-gray-300"
                             : "bg-gray-100 text-gray-700"
                           }`}
                       >
-                        {step.year}
+                        {exp.year}
                       </span>
                     </div>
-                    <div
-                      className={`text-sm font-medium ${isDarkMode ? "bg-blue-400" : "text-blue-600"
-                        } mb-3`}
-                    >
-                      {step.company}
+                    <div className={`text-sm font-medium ${isDarkMode ? "bg-blue-400" : "text-blue-600"} mb-3`}>
+                      {exp.company}
                     </div>
-                    <p
-                      className={`text-sm lending-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-600"
-                        }`}
-                    >
-                      {step.description}
-                    </p>
+                      <ul className={`text-sm lending-relaxed list-disc pl-5 space-y-2  ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                      {exp.responsibilities.map((resp, idx) => (
+                        <li key={idx}>
+                          {resp}
+                        </li>
+                      ))}
+                      </ul>
                   </div>
                 </motion.div>
               ))}
